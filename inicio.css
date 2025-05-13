@@ -1,0 +1,33 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background: url('fondo.jpg') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Segoe UI', sans-serif;
+    cursor: pointer;
+  }
+  
+  .bienvenida {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(0,0,0,0.2);
+    max-width: 500px;
+  }
+  
+  .bienvenida h1 {
+    margin-bottom: 20px;
+    font-size: 2em;
+    color: #d6336c;
+  }
+  
+  .bienvenida p {
+    font-size: 1.2em;
+    color: #444;
+  }
+  
