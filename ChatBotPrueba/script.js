@@ -57,25 +57,26 @@ function responder() {
   chatBox.innerHTML += `<p><strong>Lunaia:</strong> ${respuesta}</p>`;
 
   // Cambiar imagen del avatar
-  const emocion = detectarEmocion(mensaje);
+ const emocion = detectarEmocion(mensaje);
   switch (emocion) {
     case "feliz":
-      avatar.src = "avatar.png";
+      avatar.src = "avatars/avatar2.png";
       break;
     case "triste":
-      avatar.src = "avatar2.png";
+      avatar.src = "avatars/avatar2.png";
       break;
     case "enojado":
-      avatar.src = "avatar2.png";
+      avatar.src = "avatars/avatar2.png";
       break;
     case "sorprendido":
-      avatar.src = "avatar2.png";
+      avatar.src = "avatars/avatar2.png";
       break;
     default:
-      avatar.src = "avatar2.png";
+      avatar.src = "avatars/avatar2.png";
   }
 
   chatBox.scrollTop = chatBox.scrollHeight;
 }
+
 
   
