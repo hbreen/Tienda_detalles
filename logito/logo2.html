@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Corazón girando y estrellas al hacer clic</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background: #ebcee6;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contenedor {
+      position: relative;
+      z-index: 1;
+    }
+
+    .cuadro {
+      font-family: 'Great Vibes', cursive;
+      font-size: 2.5rem;
+      font-weight: 590; 
+      padding: 8px 20px;
+      background-color: bisque;
+      border: 2px solid rgb(219, 208, 43);
+      box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.3);
+      z-index: 2;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+      position: relative;
+      cursor: pointer;
+    }
+
+    .cora {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 150px;
+      height: 135px;
+      z-index: -1;
+      animation: girar 4s linear infinite;
+    }
+
+    .cora::before,
+    .cora::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      width: 75px;
+      height: 120px;
+      background: rgb(167, 5, 5);
+      border-radius: 150px 150px 0 0;
+    }
+
+    .cora::before {
+      left: 75px;
+      transform: rotate(-45deg);
+      transform-origin: 0 100%;
+    }
+
+    .cora::after {
+      left: 0;
+      transform: rotate(45deg);
+      transform-origin: 100% 100%;
+    }
+
+    @keyframes girar {
+      0%   { transform: translate(-50%, -50%) rotateY(0deg); }
+      100% { transform: translate(-50%, -50%) rotateY(360deg); }
+    }
+
+    .estrella {
+      position: absolute;
+      font-size: 20px;
+      color: gold;
+      animation: estallar 1s ease-out forwards;
+      pointer-events: none;
+    }
+
+    @keyframes estallar {
+      0% {
+        opacity: 1;
+        transform: translate(0, 0) scale(1);
+      }
+      100% {
+        opacity: 0;
+        transform: translate(var(--x), var(--y)) scale(0.5);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="contenedor">
+    <div class="cuadro" id="cuadro">Regala Con Amor</div>
+    <div class="cora"></div>
+  </div>
+
+  <script>
+    const cuadro = document.getElementById('cuadro');
+
+    function crearEstrellas() {
+    for (let i = 0; i < 10; i++) {
+        const estrella = document.createElement('div');
+        estrella.classList.add('estrella');
+        estrella.innerText = '⭐⭐';
+
+        // Posición inicial (centro del cuadro)
+        const rect = cuadro.getBoundingClientRect();
+        estrella.style.left = rect.left + rect.width / 2 + 'px';
+        estrella.style.top = rect.top + rect.height / 2 + 'px';
+
+        // Dirección aleatoria
+        const x = (Math.random() - 0.5) * 200 + 'px';
+        const y = (Math.random() - 0.5) * 200 + 'px';
+        estrella.style.setProperty('--x', x);
+        estrella.style.setProperty('--y', y);
+
+        document.body.appendChild(estrella);
+
+        setTimeout(() => {
+        estrella.remove();
+        }, 1000);
+    }
+    }
+
+    cuadro.addEventListener('click', crearEstrellas);
+    cuadro.addEventListener('touchstart', e => {
+    e.preventDefault();  // evitar que el toque dispare otros eventos como scroll
+    crearEstrellas();
+    });
+
+  </script>
+
+</body>
+</html>
