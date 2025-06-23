@@ -1,31 +1,86 @@
-body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Segoe UI', sans-serif;
-    background: linear-gradient(135deg, #ffe4e1, #ffb6c1);
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #4b2c2c;
-    text-align: center;
-  }
-  
-  .bienvenida {
-    background-color: rgba(255, 255, 255, 0.85);
-    padding: 40px;
-    border-radius: 20px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-    max-width: 90%;
-  }
-  
-  h1 {
-    font-size: 2.5em;
-    margin-bottom: 20px;
-  }
-  
-  p {
-    font-size: 1.2em;
-    margin-bottom: 10px;
-  }
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Regala con Amor</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .banner {
+      background: linear-gradient(135deg, #ff7eb9, #ff758c, #ff6f91);
+      color: white;
+      padding: 60px 20px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .banner::before {
+      content: "💝";
+      font-size: 150px;
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      opacity: 0.1;
+      transform: rotate(-15deg);
+    }
+
+    .banner h1 {
+      font-size: 3.5rem;
+      font-family: 'Great Vibes', cursive;
+      margin-bottom: 10px;
+      animation: brillar 2s infinite alternate;
+    }
+
+    .banner p {
+      font-size: 1.4rem;
+      max-width: 800px;
+      margin: 0 auto;
+      animation: subir 1s ease-out forwards;
+    }
+
+    .btn-banner {
+      margin-top: 30px;
+      padding: 15px 30px;
+      font-size: 1rem;
+      background-color: white;
+      color: #ff2d55;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: 0.4s ease;
+      font-weight: bold;
+    }
+
+    .btn-banner:hover {
+      background-color: #ffe0ea;
+      transform: scale(1.05);
+    }
+
+    @keyframes brillar {
+      from { text-shadow: 0 0 10px #fff; }
+      to { text-shadow: 0 0 20px #fff, 0 0 30px #ff89b6; }
+    }
+
+    @keyframes subir {
+      from { transform: translateY(30px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="banner">
+    <h1>Regala con Amor</h1>
+    <p>Detalles únicos para toda ocasión. Crea combos personalizados o elige entre nuestros productos más vendidos. ¡Sorprende con estilo y sentimiento!</p>
+    <button class="btn-banner" onclick="location.href='productos.html'">¡Explora los Detalles!</button>
+  </div>
+
+</body>
+</html>
+
   
